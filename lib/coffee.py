@@ -1,19 +1,15 @@
 class Coffee:
-    def __init__(self, size, price):
-        self.size = size
+    def init(self,size,price):
+        self._size = size
         self.price = price
-
-    @property
-    def size(self):
+    def get_size(self):
         return self._size
-
-    @size.setter
-    def size(self, value):
-        if value in ["Small", "Medium", "Large"]:
-            self._size = value
+    def set_size(self,value):
+        if value != "Small" or value != "Medium" or value != "Large" :
+            print("size must be Small, Medium, or Large") 
         else:
-            print("size must be Small, Medium, or Large")
-
+            self._size = value
     def tip(self):
         print("This coffee is great, here’s a tip!")
-        self.price += 1
+        self.price += 1 
+    size = property(get_size,set_size)
